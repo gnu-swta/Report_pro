@@ -6,33 +6,17 @@ Report_manager::Report_manager(QWidget *parent) :
     ui(new Ui::Report_manager)
 {
     ui->setupUi(this);
-    connect(ui->chat, SIGNAL(clicked()), this, SLOT(slot_chat()));
-    connect(ui->report, SIGNAL(clicked()), this, SLOT(slot_report()));
-    connect(ui->set, SIGNAL(clicked()), this, SLOT(slot_set()));
+
     connect(ui->report_create, SIGNAL(clicked()), this, SLOT(slot_create()));
 
     ui->name->setText("김기일");
+
+    set_report();
 }
 
 Report_manager::~Report_manager()
 {
     delete ui;
-}
-
-void Report_manager::slot_chat()
-{
-
-}
-
-void Report_manager::slot_report()
-{
-    Widget *r_main = new Widget();
-    r_main->show();
-}
-
-void Report_manager::slot_set()
-{
-
 }
 
 void Report_manager::slot_create()
@@ -60,4 +44,5 @@ void Report_manager::show_report(Report_form *item)
     QListWidgetItem *subject = new QListWidgetItem();
 
     ui->report_list->addItem(subject);
+    ui->report_list->setItemWidget(subject, item);
 }

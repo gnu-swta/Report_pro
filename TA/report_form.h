@@ -2,6 +2,7 @@
 #define REPORT_FORM_H
 
 #include <QWidget>
+#include <QDebug>
 
 namespace Ui {
 class Report_form;

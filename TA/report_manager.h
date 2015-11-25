@@ -27,9 +27,6 @@ private:
     void show_report(Report_form *item);
 
 private slots:
-    void slot_chat();
-    void slot_report();
-    void slot_set();
     void slot_create();
     void slot_submit();
 };

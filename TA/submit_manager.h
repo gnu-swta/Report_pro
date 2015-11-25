@@ -22,9 +22,7 @@ private:
     Ui::Submit_manager *ui;
 
 private slots:
-    void slot_chat();
-    void slot_report();
-    void slot_set();
+
 };
 
 #endif // SUBMIT_MANAGER_H

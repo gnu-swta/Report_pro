@@ -6,9 +6,8 @@ Report_create::Report_create(QWidget *parent) :
     ui(new Ui::Report_create)
 {
     ui->setupUi(this);
-    connect(ui->chat, SIGNAL(clicked()), this, SLOT(slot_chat()));
-    connect(ui->report, SIGNAL(clicked()), this, SLOT(slot_report()));
-    connect(ui->set, SIGNAL(clicked()), this, SLOT(slot_set()));
+    connect(ui->add, SIGNAL(clicked()), this, SLOT(slot_create));
+    connect(ui->cancel, SIGNAL(clicked()), this, SLOT(quit()));
 }
 
 Report_create::~Report_create()
@@ -16,18 +15,12 @@ Report_create::~Report_create()
     delete ui;
 }
 
-void Report_create::slot_chat()
+void Report_create::slot_create()
 {
 
 }
 
-void Report_create::slot_report()
-{
-    Widget *r_main = new Widget();
-    r_main->show();
-}
-
-void Report_create::slot_set()
+void Report_create::slot_cancel()
 {
 
 }

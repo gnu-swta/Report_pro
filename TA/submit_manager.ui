@@ -46,31 +46,6 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QPushButton" name="chat">
-       <property name="text">
-        <string>채팅</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="report">
-       <property name="text">
-        <string>레포트</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="set">
-       <property name="text">
-        <string>설정</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QListWidget" name="number"/>
