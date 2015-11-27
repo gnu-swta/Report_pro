@@ -17,6 +17,13 @@
    <item>
     <layout class="QHBoxLayout" name="user_info">
      <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>레포트</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>

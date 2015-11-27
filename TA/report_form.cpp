@@ -18,5 +18,4 @@ void Report_form::set_info(QString number, QString name, QString date)
     ui->name->setText(name);
     ui->number->setText(number);
     ui->date->setText(date);
-    qDebug()<<ui->name->text();
 }

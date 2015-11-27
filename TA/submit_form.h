@@ -14,6 +14,7 @@ class Submit_form : public QWidget
 public:
     explicit Submit_form(QWidget *parent = 0);
     ~Submit_form();
+    void set_info(QString number, QString studentName, QString fileName, QString subDate);
 
 private:
     Ui::Submit_form *ui;

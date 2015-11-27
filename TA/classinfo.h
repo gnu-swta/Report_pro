@@ -8,6 +8,7 @@ struct classArr{
     QString classRoomNum;
     QString className;
     QString classTime;
+    QString userName;
 };
 
 

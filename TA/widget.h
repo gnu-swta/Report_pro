@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include "report_manager.h"
+#include "classinfo.h"
 #include <QWidget>
 #include <QDebug>
 #include <QModelIndex>
@@ -21,11 +22,9 @@ public:
 private:
     Ui::Widget *ui;
     void set_class();
-    QString set_class_info(int i);
-    void show_class(QString class_info);
+    void show_class();
+    classArr test[10];
 private slots:
-    void slot_chat();
-    void slot_set();
     void slot_class(QModelIndex name);
 };
 
