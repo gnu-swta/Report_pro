@@ -25,14 +25,16 @@ public:
 private:
     Ui::Report_manager *ui;
     void set_report();
-    void show_report(Report_form *item);
+    void show_report();
     classArr test;
-
+    Report_form *item[10];
 
 private slots:
     void slot_create();
-    void slot_submit();
+    void slot_submit(QModelIndex name);
     void slot_renwwal();
+    void slot_modify();
+    void slot_remove();
 };
 
 #endif // REPORT_MANAGER_H

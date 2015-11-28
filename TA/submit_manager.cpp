@@ -23,4 +23,6 @@ Submit_manager::~Submit_manager()
 void Submit_manager::set_submit()
 {
     // 서버로부터 학생들의 정보와 제출여부를 받아온다.
+
+
 }

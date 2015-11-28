@@ -17,6 +17,7 @@ Report_manager::Report_manager(struct classArr data, QWidget *parent) :
     connect(ui->report_create, SIGNAL(clicked()), this, SLOT(slot_create()));
     connect(ui->renewal, SIGNAL(clicked()), this, SLOT(slot_renwwal()));
     connect(ui->report_list, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slot_submit(QModelIndex)));
+    //connect(ui->)
 }
 
 Report_manager::~Report_manager()
@@ -27,6 +28,8 @@ Report_manager::~Report_manager()
 void Report_manager::slot_renwwal()
 {
     // 레포트 리스트를 갱신한다.
+
+    delete ui->report_list->item(0);
 
     set_report();
 }
@@ -39,7 +42,7 @@ void Report_manager::slot_create()
     r_create->show();
 }
 
-void Report_manager::slot_submit()
+void Report_manager::slot_submit(QModelIndex name)
 {
     // 레포트 제출관리하는 위젯을 생성한다.
 
@@ -47,25 +50,34 @@ void Report_manager::slot_submit()
     s_manager->show();
 }
 
+void Report_manager::slot_modify()
+{
+    //레포트를 수정한다.
+}
+
+void Report_manager::slot_remove()
+{
+    //레포트를 삭제한다.
+}
+
 void Report_manager::set_report()
 {
     // 서버로부터 강의의 정보를 가지고 과제 리스트를 받아온다.
     // 레포트 명, 레포트 기간
 
-    Report_form *item = new Report_form();
+    item[0] = new Report_form();
 
-    item->set_info("1", "명세서", "2015.11.20~2015.11.30");
+    //item[0]->set_info("1", "명세서", "2015.11.20~2015.11.30");
 
-    show_report(item);
+    show_report();
 }
 
-void Report_manager::show_report(Report_form *item)
+void Report_manager::show_report()
 {
     // 레포트 리스트를 화면에 출력한다.
 
     QListWidgetItem *subject = new QListWidgetItem();
 
-
     ui->report_list->addItem(subject);
-    ui->report_list->setItemWidget(subject, item);
+    ui->report_list->setItemWidget(subject, item[0]);
 }

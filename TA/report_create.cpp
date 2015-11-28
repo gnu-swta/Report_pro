@@ -43,8 +43,8 @@ void Report_create::set_report()
 
     cReport rep;
 
-    rep.name = ui->report_name;
-    rep.sdate = ui->start_date;
-    rep.edate = ui->end_date;
-    rep.exp = ui->explain;
+    rep.name = ui->report_name->text();
+    rep.sdate = ui->start_date->date();
+    rep.edate = ui->end_date->date();
+    rep.exp = ui->explain->toPlainText();
 }
