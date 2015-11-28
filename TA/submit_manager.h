@@ -23,6 +23,8 @@ private:
     Ui::Submit_manager *ui;
     classArr test;
     void set_submit();
+    void show_submit(Submit_form student);
+    void down_report();
 
 private slots:
 

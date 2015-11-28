@@ -68,7 +68,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QListWidget" name="number"/>
+      <widget class="QListWidget" name="student_list"/>
      </item>
     </layout>
    </item>
