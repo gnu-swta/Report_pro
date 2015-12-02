@@ -26,8 +26,9 @@ void Submit_manager::set_submit()
 
     Submit_form *student = new Submit_form();
 
-    student->set_info("1", "박종열", "", "");
-
+    QString asd = "1";
+    //student->set_info("1", "박종열",  "1 ", "1 ");
+    student->set_info(asd, asd, asd, asd);
     show_submit(student);
 }
 

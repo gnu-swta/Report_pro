@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     report_create.cpp \
     submit_manager.cpp \
     report_form.cpp \
-    submit_form.cpp
+    submit_form.cpp \
+    api_http.cpp
 
 HEADERS  += widget.h \
     report_manager.h \
@@ -26,11 +27,14 @@ HEADERS  += widget.h \
     submit_manager.h \
     report_form.h \
     submit_form.h \
-    classinfo.h
+    classinfo.h \
+    api_http.h \
+    type.h
 
 FORMS    += widget.ui \
     report_manager.ui \
     report_create.ui \
     submit_manager.ui \
     report_form.ui \
-    submit_form.ui
+    submit_form.ui \
+    api_http.ui

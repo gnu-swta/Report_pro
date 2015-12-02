@@ -22,7 +22,6 @@ Widget::~Widget()
 void Widget::slot_class(QModelIndex name)
 {
     // 레포트 목록을 보는 위젯을 생성한다.
-qDebug()<<name.isValid();
 
     Report_manager *r_manager = new Report_manager(test[0]);
     r_manager->show();

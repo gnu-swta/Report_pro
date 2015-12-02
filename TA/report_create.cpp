@@ -12,6 +12,23 @@ Report_create::Report_create(struct classArr data, QWidget *parent) :
     ui->user_name->setText(test.userName);
     ui->class_name->setText(test.className);
 
+    api_http = new Api_http();
+    connect(ui->add, SIGNAL(clicked()), this, SLOT(slot_create()));
+    connect(ui->cancel, SIGNAL(clicked()), this, SLOT(slot_cancel()));
+}
+
+Report_create::Report_create(classArr data, Report_form *ori, QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Report_create)
+{
+    ui->setupUi(this);
+
+    test = data;
+
+    ui->user_name->setText(test.userName);
+    ui->class_name->setText(test.className);
+    ui->add->setText("수정");
+
     connect(ui->add, SIGNAL(clicked()), this, SLOT(slot_create()));
     connect(ui->cancel, SIGNAL(clicked()), this, SLOT(slot_cancel()));
 }
@@ -41,10 +58,22 @@ void Report_create::set_report()
 {
     // 서버로 입력받은 레포트의 정보를 저장한다.
 
-    cReport rep;
+    QString parameters;
+    QString header;
 
-    rep.name = ui->report_name->text();
-    rep.sdate = ui->start_date->date();
-    rep.edate = ui->end_date->date();
-    rep.exp = ui->explain->toPlainText();
+    header.append(test.token);
+
+    parameters.append("title/");
+    parameters.append(ui->report_name->text());
+    parameters.append("/");
+    parameters.append("fk_class/");
+    parameters.append(test.classNum);
+    parameters.append("/");
+    parameters.append("start/");
+    parameters.append(ui->start_date->dateTime().toString());
+    parameters.append("/");
+    parameters.append("deadline/");
+    parameters.append(ui->end_date->dateTime().toString());
+    parameters.append("/");
+    api_http->post_url(DONCARE,POST_REGISTER_REPORT,parameters,header,8,HEADER_INCLUDE);
 }

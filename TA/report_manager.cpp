@@ -17,7 +17,7 @@ Report_manager::Report_manager(struct classArr data, QWidget *parent) :
     connect(ui->report_create, SIGNAL(clicked()), this, SLOT(slot_create()));
     connect(ui->renewal, SIGNAL(clicked()), this, SLOT(slot_renwwal()));
     connect(ui->report_list, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slot_submit(QModelIndex)));
-    //connect(ui->)
+
 }
 
 Report_manager::~Report_manager()
@@ -25,13 +25,22 @@ Report_manager::~Report_manager()
     delete ui;
 }
 
+void Report_manager::slot_item_clicked(QListWidgetItem *)
+{
+    qDebug()<<"itmes";
+}
+
 void Report_manager::slot_renwwal()
 {
     // 레포트 리스트를 갱신한다.
-
     delete ui->report_list->item(0);
 
     set_report();
+}
+
+void Report_manager::slot_delete()
+{
+
 }
 
 void Report_manager::slot_create()
@@ -42,7 +51,7 @@ void Report_manager::slot_create()
     r_create->show();
 }
 
-void Report_manager::slot_submit(QModelIndex name)
+void Report_manager::slot_submit(QModelIndex idx)
 {
     // 레포트 제출관리하는 위젯을 생성한다.
 
@@ -50,34 +59,38 @@ void Report_manager::slot_submit(QModelIndex name)
     s_manager->show();
 }
 
-void Report_manager::slot_modify()
-{
-    //레포트를 수정한다.
-}
-
-void Report_manager::slot_remove()
-{
-    //레포트를 삭제한다.
-}
-
 void Report_manager::set_report()
 {
     // 서버로부터 강의의 정보를 가지고 과제 리스트를 받아온다.
     // 레포트 명, 레포트 기간
+    static int num = 0;
 
-    item[0] = new Report_form();
+    item[num] = new Report_form(num++);
 
-    //item[0]->set_info("1", "명세서", "2015.11.20~2015.11.30");
+    //item->set_info("1", "명세서", "2015.11.20~2015.11.30");
 
-    show_report();
+    show_report(item[num]);
+    connect(item[num], SIGNAL(click_modify(int)), this, SLOT(slot_click_mod(int)));
+    connect(item[num], SIGNAL(click_del(int)), this, SLOT(slot_click_del(int)));
 }
 
-void Report_manager::show_report()
+void Report_manager::slot_click_mod(int num)
+{
+    Report_create *r_create = new Report_create(test, item[num]);
+    r_create->show();
+}
+
+void Report_manager::slot_click_del(int num)
+{
+
+}
+
+void Report_manager::show_report(Report_form *item)
 {
     // 레포트 리스트를 화면에 출력한다.
 
     QListWidgetItem *subject = new QListWidgetItem();
 
     ui->report_list->addItem(subject);
-    ui->report_list->setItemWidget(subject, item[0]);
+    ui->report_list->setItemWidget(subject, item);
 }
