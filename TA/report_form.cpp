@@ -28,9 +28,18 @@ Report_form::~Report_form()
     delete ui;
 }
 
-void Report_form::set_info(QString number, QString name, QString date)
+void Report_form::set_info(int num, QString name, QString s_date, QString e_date)
 {
+    QString perid;
+    QString number;
+
+    number = number.setNum(num+1);
+
+    perid = s_date;
+    perid.append(" ~ ");
+    perid.append(e_date);
+
     ui->name->setText(name);
     ui->number->setText(number);
-    ui->date->setText(date);
+    ui->date->setText(perid);
 }

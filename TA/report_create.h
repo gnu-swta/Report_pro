@@ -19,7 +19,7 @@ class Report_create : public QWidget
 
 public:
     explicit Report_create(struct classArr data, QWidget *parent = 0);
-    explicit Report_create(struct classArr data, Report_form *ori, QWidget *parent = 0);
+    explicit Report_create(struct classArr data, struct reportArr *ori, QWidget *parent = 0);
     ~Report_create();
 
 private:

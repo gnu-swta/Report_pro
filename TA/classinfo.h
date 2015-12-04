@@ -36,6 +36,15 @@ struct msgArr{
     QString msg;
 };
 
+struct reportArr{
+    QString pk_report;
+    QString fk_class;
+    QString title;
+    QString index;
+    QString start;
+    QString deadline;
+};
+
 
 #define PK_CLASS        "pk_class"
 #define NAME            "name"
@@ -53,6 +62,14 @@ struct msgArr{
 #define FK_STUDENT      "fk_student"
 #define TIME            "time"
 #define MESSAGE         "msg"
+
+
+#define PK_REPORT       "pk_report"
+#define TITLE           "tile"
+#define INDEX           "idex"
+#define START           "start"
+#define DEADLINE        "deadline"
+
 
 
 #endif // CLASSINFO

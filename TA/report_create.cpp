@@ -17,7 +17,7 @@ Report_create::Report_create(struct classArr data, QWidget *parent) :
     connect(ui->cancel, SIGNAL(clicked()), this, SLOT(slot_cancel()));
 }
 
-Report_create::Report_create(classArr data, Report_form *ori, QWidget *parent) :
+Report_create::Report_create(classArr data, reportArr *ori, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Report_create)
 {
